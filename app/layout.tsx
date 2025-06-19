@@ -7,48 +7,56 @@ const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
   title: {
-    default: "Agency - Digital Solutions That Drive Results",
-    template: "%s | Agency - Digital Solutions",
+    default: "Shrishti Web Solutions – Smarter Web, Smarter Business",
+    template: "%s | Shrishti Web Solutions",
   },
   description:
-    "Professional web development, digital marketing, and SEO services. We create custom solutions that propel your online growth with measurable ROI.",
-  keywords: ["web development", "digital marketing", "SEO", "brand design", "e-commerce", "analytics"],
-  authors: [{ name: "Agency Team" }],
-  creator: "Agency",
-  publisher: "Agency",
+    "We offer web design, development, digital marketing, and SEO solutions. Helping businesses build strong digital identities with high ROI.",
+  keywords: [
+    "web design",
+    "web development",
+    "digital marketing",
+    "SEO",
+    "UI/UX",
+    "e-commerce development",
+    "responsive websites",
+  ],
+  authors: [{ name: "Shrishti Web Team" }],
+  creator: "Shrishti Web Solutions",
+  publisher: "Shrishti Web Solutions",
   formatDetection: {
-    email: false,
-    address: false,
-    telephone: false,
+    email: true,
+    address: true,
+    telephone: true,
   },
-  metadataBase: new URL("https://agency.example.com"),
+  metadataBase: new URL("https://www.shrishtiwebsolutions.com"),
   alternates: {
-    canonical: "/",
+    canonical: "https://www.shrishtiwebsolutions.com/",
   },
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://agency.example.com",
-    title: "Agency - Digital Solutions That Drive Results",
+    url: "https://www.shrishtiwebsolutions.com",
+    title: "Shrishti Web Solutions – Smarter Web, Smarter Business",
     description:
-      "Professional web development, digital marketing, and SEO services. We create custom solutions that propel your online growth with measurable ROI.",
-    siteName: "Agency",
+      "We offer web design, development, digital marketing, and SEO solutions. Helping businesses build strong digital identities with high ROI.",
+    siteName: "Shrishti Web Solutions",
     images: [
       {
         url: "/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: "Agency - Digital Solutions",
+        alt: "Shrishti Web Solutions",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Agency - Digital Solutions That Drive Results",
+    title: "Shrishti Web Solutions – Smarter Web, Smarter Business",
     description:
-      "Professional web development, digital marketing, and SEO services. We create custom solutions that propel your online growth with measurable ROI.",
+      "We offer web design, development, digital marketing, and SEO solutions. Helping businesses build strong digital identities with high ROI.",
     images: ["/og-image.jpg"],
-    creator: "@agency",
+    creator: "@shrishtiweb",
   },
   robots: {
     index: true,
@@ -62,9 +70,9 @@ export const metadata: Metadata = {
     },
   },
   verification: {
-    google: "your-google-verification-code",
+    google: "your-google-verification-code", // Replace with your actual code
   },
-    generator: 'v0.dev'
+  generator: "v0.dev",
 }
 
 export default function RootLayout({
@@ -91,44 +99,48 @@ export default function RootLayout({
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "Organization",
-              name: "Agency",
-              url: "https://agency.example.com",
-              logo: "https://agency.example.com/logo.png",
-              description: "Professional web development, digital marketing, and SEO services.",
+              name: "Shrishti Web Solutions",
+              url: "https://www.shrishtiwebsolutions.com",
+              logo: "https://www.shrishtiwebsolutions.com/logo.png",
+              description: "Web design, development, SEO, and digital marketing services tailored for business growth.",
               address: {
                 "@type": "PostalAddress",
-                streetAddress: "123 Creative Street",
-                addressLocality: "Design City",
-                addressRegion: "DC",
-                postalCode: "12345",
-                addressCountry: "US",
+                streetAddress: "Satral Songaon Tal-Rahuri",
+                addressLocality: "Ahmednagar",
+                addressRegion: "MH",
+                postalCode: "413705",
+                addressCountry: "IN",
               },
               contactPoint: {
                 "@type": "ContactPoint",
-                telephone: "+1-555-123-4567",
+                telephone: "+91-8468954007",
                 contactType: "customer service",
-                email: "hello@agency.com",
+                email: "shrishtiwebsolutios@gmail.com",
               },
               sameAs: [
-                "https://twitter.com/agency",
-                "https://linkedin.com/company/agency",
-                "https://instagram.com/agency",
+                "https://www.instagram.com/shrishtiwebsolutions",
+                "https://www.linkedin.com/company/shrishtiwebsolutions",
               ],
               service: [
                 {
                   "@type": "Service",
+                  name: "Web Design",
+                  description: "Modern, responsive website designs focused on user experience.",
+                },
+                {
+                  "@type": "Service",
                   name: "Web Development",
-                  description: "Custom, responsive websites built with modern technologies",
+                  description: "Scalable full-stack web solutions using modern frameworks.",
                 },
                 {
                   "@type": "Service",
                   name: "Digital Marketing",
-                  description: "Data-driven marketing campaigns that deliver measurable results",
+                  description: "Data-driven strategies to promote and grow your brand online.",
                 },
                 {
                   "@type": "Service",
                   name: "SEO Optimization",
-                  description: "Comprehensive SEO strategies to improve search rankings",
+                  description: "Improve your website visibility with tailored SEO strategies.",
                 },
               ],
             }),
