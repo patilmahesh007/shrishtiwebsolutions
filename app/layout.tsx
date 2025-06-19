@@ -11,15 +11,16 @@ export const metadata: Metadata = {
     template: "%s | Shrishti Web Solutions",
   },
   description:
-    "We offer web design, development, digital marketing, and SEO solutions. Helping businesses build strong digital identities with high ROI.",
+    "Shrishti Web Solutions offers expert web design, development, SEO, and digital marketing to help businesses succeed online.",
   keywords: [
     "web design",
     "web development",
     "digital marketing",
     "SEO",
     "UI/UX",
-    "e-commerce development",
+    "ecommerce development",
     "responsive websites",
+    "Shrishti Web Solutions",
   ],
   authors: [{ name: "Shrishti Web Team" }],
   creator: "Shrishti Web Solutions",
@@ -39,7 +40,7 @@ export const metadata: Metadata = {
     url: "https://www.shrishtiwebsolutions.com",
     title: "Shrishti Web Solutions – Smarter Web, Smarter Business",
     description:
-      "We offer web design, development, digital marketing, and SEO solutions. Helping businesses build strong digital identities with high ROI.",
+      "Shrishti Web Solutions offers expert web design, development, SEO, and digital marketing to help businesses succeed online.",
     siteName: "Shrishti Web Solutions",
     images: [
       {
@@ -54,7 +55,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Shrishti Web Solutions – Smarter Web, Smarter Business",
     description:
-      "We offer web design, development, digital marketing, and SEO solutions. Helping businesses build strong digital identities with high ROI.",
+      "Shrishti Web Solutions offers expert web design, development, SEO, and digital marketing to help businesses succeed online.",
     images: ["/og-image.jpg"],
     creator: "@shrishtiweb",
   },
@@ -70,7 +71,7 @@ export const metadata: Metadata = {
     },
   },
   verification: {
-    google: "your-google-verification-code", // Replace with your actual code
+    google: "your-google-verification-code", // Replace with your actual one
   },
   generator: "v0.dev",
 }
@@ -102,7 +103,8 @@ export default function RootLayout({
               name: "Shrishti Web Solutions",
               url: "https://www.shrishtiwebsolutions.com",
               logo: "https://www.shrishtiwebsolutions.com/logo.png",
-              description: "Web design, development, SEO, and digital marketing services tailored for business growth.",
+              description:
+                "Web design, development, SEO, and digital marketing services tailored to boost business success.",
               address: {
                 "@type": "PostalAddress",
                 streetAddress: "Satral Songaon Tal-Rahuri",
@@ -125,22 +127,22 @@ export default function RootLayout({
                 {
                   "@type": "Service",
                   name: "Web Design",
-                  description: "Modern, responsive website designs focused on user experience.",
+                  description: "Modern, responsive website designs with exceptional UI/UX.",
                 },
                 {
                   "@type": "Service",
                   name: "Web Development",
-                  description: "Scalable full-stack web solutions using modern frameworks.",
+                  description: "Full-stack web development using modern frameworks.",
                 },
                 {
                   "@type": "Service",
                   name: "Digital Marketing",
-                  description: "Data-driven strategies to promote and grow your brand online.",
+                  description: "Strategies to grow your online presence and engagement.",
                 },
                 {
                   "@type": "Service",
                   name: "SEO Optimization",
-                  description: "Improve your website visibility with tailored SEO strategies.",
+                  description: "Increase your search visibility and rank higher on Google.",
                 },
               ],
             }),
