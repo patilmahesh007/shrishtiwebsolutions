@@ -11,53 +11,74 @@ interface ServicePageProps {
 const serviceData = {
   "web-development": {
     title: "Web Development",
-    domain: "webdev.example.com",
+    domain: "webdev.thewebsitewala.com",
     description: "Custom, responsive websites built with cutting-edge technologies",
     longDescription:
-      "We create modern, fast, and scalable websites that not only look stunning but perform exceptionally. Our development process focuses on user experience, performance optimization, and future-proof architecture.",
+      "We create modern, fast, and scalable websites that not only look stunning but perform exceptionally. Our development process focuses on user experience, performance optimization, and future-proof architecture with affordable pricing in Indian Rupees.",
     features: [
       "Responsive Design for All Devices",
       "Performance Optimization",
       "SEO-Ready Architecture",
-      "Content Management System",
-      "E-commerce Integration",
-      "Third-party API Integration",
-      "Security Best Practices",
+      "Social Media Integration",
+      "Custom Design & Development",
+      "Backend Integration",
+      "Admin Panel Development",
       "Ongoing Maintenance & Support",
     ],
     process: [
-      { step: "Discovery", description: "Understanding your requirements and goals" },
-      { step: "Design", description: "Creating wireframes and visual designs" },
+      { step: "Discovery", description: "Understanding your requirements and business goals" },
+      { step: "Design", description: "Creating wireframes and custom visual designs" },
       { step: "Development", description: "Building your website with modern technologies" },
       { step: "Testing", description: "Comprehensive testing across devices and browsers" },
       { step: "Launch", description: "Deploying your website and monitoring performance" },
       { step: "Support", description: "Ongoing maintenance and updates" },
     ],
-    technologies: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Node.js", "PostgreSQL"],
+    technologies: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Node.js", "MongoDB", "PostgreSQL"],
     pricing: {
-      basic: { price: "$2,500", features: ["5 Pages", "Responsive Design", "Basic SEO", "Contact Form"] },
+      basic: {
+        price: "₹15,000",
+        features: [
+          "4 Pages",
+          "Responsive Design",
+          "Basic SEO",
+          "Social Media Integration",
+          "Contact Form",
+          "Mobile Optimized",
+        ],
+      },
       standard: {
-        price: "$4,500",
-        features: ["10 Pages", "CMS Integration", "Advanced SEO", "Analytics Setup", "Social Media Integration"],
+        price: "₹20,000",
+        features: [
+          "7 Pages",
+          "Advanced SEO",
+          "Social Media Integration",
+          "Custom Design",
+          "Analytics Setup",
+          "Performance Optimization",
+          "Content Management",
+        ],
       },
       premium: {
-        price: "$7,500",
+        price: "₹30,000",
         features: [
           "Unlimited Pages",
-          "E-commerce Ready",
           "Custom Functionality",
-          "Performance Optimization",
+          "Backend Integration",
+          "Admin Panel",
+          "Database Integration",
+          "User Authentication",
           "Priority Support",
+          "Advanced Features",
         ],
       },
     },
   },
   "digital-marketing": {
     title: "Digital Marketing",
-    domain: "marketing.example.com",
+    domain: "marketing.thewebsitewala.com",
     description: "Data-driven marketing campaigns that deliver measurable results",
     longDescription:
-      "Our digital marketing strategies combine creativity with analytics to drive engagement, generate leads, and increase conversions. We focus on ROI-driven campaigns across multiple channels.",
+      "Our digital marketing strategies combine creativity with analytics to drive engagement, generate leads, and increase conversions. We focus on ROI-driven campaigns across multiple channels with transparent pricing in Indian Rupees.",
     features: [
       "Social Media Management",
       "Pay-Per-Click Advertising",
@@ -79,15 +100,15 @@ const serviceData = {
     technologies: ["Google Ads", "Facebook Ads", "Instagram", "LinkedIn", "Google Analytics", "HubSpot"],
     pricing: {
       basic: {
-        price: "$1,500/mo",
+        price: "₹8,000/mo",
         features: ["2 Platforms", "Content Creation", "Basic Analytics", "Monthly Reports"],
       },
       standard: {
-        price: "$3,000/mo",
+        price: "₹10,000/mo",
         features: ["4 Platforms", "PPC Management", "Advanced Analytics", "Bi-weekly Reports", "A/B Testing"],
       },
       premium: {
-        price: "$5,000/mo",
+        price: "₹15,000/mo",
         features: [
           "All Platforms",
           "Full Campaign Management",
@@ -100,10 +121,10 @@ const serviceData = {
   },
   seo: {
     title: "SEO Optimization",
-    domain: "seo.example.com",
+    domain: "seo.thewebsitewala.com",
     description: "Comprehensive SEO strategies to dominate search rankings",
     longDescription:
-      "Our SEO approach combines technical expertise with content strategy to improve your search visibility and drive organic traffic. We focus on sustainable, white-hat techniques that deliver long-term results.",
+      "Our SEO approach combines technical expertise with content strategy to improve your search visibility and drive organic traffic. We focus on sustainable, white-hat techniques that deliver long-term results with affordable monthly plans in Indian Rupees.",
     features: [
       "Comprehensive SEO Audit",
       "Keyword Research & Strategy",
@@ -125,15 +146,15 @@ const serviceData = {
     technologies: ["Google Search Console", "SEMrush", "Ahrefs", "Screaming Frog", "Google Analytics", "Schema.org"],
     pricing: {
       basic: {
-        price: "$800/mo",
+        price: "₹2,500/mo",
         features: ["Keyword Research", "On-Page SEO", "Monthly Reports", "Basic Link Building"],
       },
       standard: {
-        price: "$1,500/mo",
+        price: "₹3,000/mo",
         features: ["Technical SEO", "Content Strategy", "Advanced Link Building", "Bi-weekly Reports", "Local SEO"],
       },
       premium: {
-        price: "$2,500/mo",
+        price: "₹5,000/mo",
         features: ["Enterprise SEO", "Custom Strategy", "Priority Support", "Weekly Reports", "Dedicated SEO Manager"],
       },
     },
@@ -237,10 +258,13 @@ export default function ServicePage({ params }: ServicePageProps) {
               <h3 className="text-2xl font-bold text-white mb-6">Pricing Plans</h3>
               <div className="space-y-6">
                 {Object.entries(service.pricing).map(([plan, details]) => (
-                  <div key={plan} className="border border-gray-700 rounded-lg p-4">
+                  <div
+                    key={plan}
+                    className="border border-gray-700 rounded-lg p-4 hover:border-gray-600 transition-colors"
+                  >
                     <div className="flex items-center justify-between mb-3">
-                      <span className="text-white font-semibold capitalize">{plan}</span>
-                      <span className="text-white font-bold">{details.price}</span>
+                      <span className="text-white font-semibold capitalize text-lg">{plan}</span>
+                      <span className="text-white font-bold text-xl">{details.price}</span>
                     </div>
                     <div className="space-y-2">
                       {details.features.map((feature, index) => (
@@ -253,12 +277,22 @@ export default function ServicePage({ params }: ServicePageProps) {
                   </div>
                 ))}
               </div>
+
+              {/* Pricing Note */}
+              <div className="mt-6 p-4 bg-blue-900/20 border border-blue-800 rounded-lg">
+                <p className="text-blue-300 text-sm">
+                  <strong>Note:</strong> All prices are in Indian Rupees (INR). Custom requirements may affect pricing.
+                  Contact us for a detailed quote.
+                </p>
+              </div>
             </div>
 
             {/* CTA */}
             <div className="bg-gray-900/50 backdrop-blur-sm rounded-2xl border border-gray-800 p-8 text-center">
               <h3 className="text-xl font-bold text-white mb-4">Ready to Start?</h3>
-              <p className="text-gray-300 mb-6">Let's discuss your project and create a custom solution.</p>
+              <p className="text-gray-300 mb-6">
+                Let's discuss your project and create a custom solution that fits your budget.
+              </p>
               <Link
                 href="/contact"
                 className="inline-flex items-center space-x-2 bg-white text-black px-6 py-3 rounded-full font-semibold hover:bg-gray-100 transition-colors w-full justify-center"
@@ -266,6 +300,18 @@ export default function ServicePage({ params }: ServicePageProps) {
                 <span>Get Started</span>
                 <ArrowRight className="w-4 h-4" />
               </Link>
+
+              {/* WhatsApp CTA */}
+              <div className="mt-4">
+                <Link
+                  href="https://wa.me/918468954007?text=Hi! I'm interested in your web development services. Can we discuss pricing and my project requirements?"
+                  target="_blank"
+                  className="inline-flex items-center space-x-2 bg-[#25D366] text-white px-6 py-3 rounded-full font-semibold hover:bg-[#20b358] transition-colors w-full justify-center"
+                >
+                  <span>Chat on WhatsApp</span>
+                  <ArrowRight className="w-4 h-4" />
+                </Link>
+              </div>
             </div>
           </div>
         </div>

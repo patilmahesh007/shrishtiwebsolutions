@@ -3,6 +3,7 @@
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import BottomNavigation from "./bottom-navigation"
+import Image from "next/image"
 
 export default function Navigation() {
   const pathname = usePathname()
@@ -26,23 +27,42 @@ export default function Navigation() {
               href={item.href}
               className={`transition-colors text-sm ${
                 item.isLogo
-                  ? "w-8 h-8 bg-white rounded-full flex items-center justify-center text-black font-bold text-lg"
+                  ? "w-12 h-12 rounded-full flex items-center justify-center overflow-hidden bg-white/10 backdrop-blur-sm border border-gray-700 hover:border-gray-500"
                   : pathname === item.href
                     ? "text-white"
                     : "text-gray-300 hover:text-white"
               }`}
               aria-label={item.isLogo ? "Home" : item.label}
             >
-              {item.isLogo ? "A" : item.label}
+              {item.isLogo ? (
+                <Image
+                  src="/logo.png"
+                  alt="The Website Wala"
+                  width={48}
+                  height={48}
+                  className="w-full h-full object-cover rounded-full"
+                />
+              ) : (
+                item.label
+              )}
             </Link>
           ))}
         </div>
       </nav>
 
-      {/* Mobile Top Bar */}
-      <div className="md:hidden relative z-20 flex items-center justify-center pt-6 pb-4">
-        <Link href="/" className="w-10 h-10 bg-white rounded-full flex items-center justify-center">
-          <span className="text-black font-bold text-lg">A</span>
+      {/* Mobile Top Bar - Reduced padding */}
+      <div className="md:hidden relative z-20 flex items-center justify-center pt-4 pb-2">
+        <Link
+          href="/"
+          className="w-12 h-12 rounded-full overflow-hidden bg-white/10 backdrop-blur-sm border border-gray-700"
+        >
+          <Image
+            src="/logo.png"
+            alt="The Website Wala"
+            width={48}
+            height={48}
+            className="w-full h-full object-cover rounded-full"
+          />
         </Link>
       </div>
 

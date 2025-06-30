@@ -2,6 +2,72 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Portfolio scrollbar styling - FIXED for guaranteed scrolling */
+.portfolio-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.8) rgba(0, 0, 0, 0.4);
+  overflow-y: scroll !important; /* Force scroll always */
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch; /* iOS smooth scrolling */
+}
+
+.portfolio-scrollbar::-webkit-scrollbar {
+  width: 12px;
+  background: rgba(0, 0, 0, 0.4);
+}
+
+.portfolio-scrollbar::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.4);
+  border-radius: 6px;
+  margin: 4px;
+}
+
+.portfolio-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 6px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  min-height: 30px;
+}
+
+.portfolio-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.9);
+  border-color: rgba(255, 255, 255, 0.5);
+}
+
+.portfolio-scrollbar::-webkit-scrollbar-thumb:active {
+  background: rgba(255, 255, 255, 1);
+}
+
+.portfolio-scrollbar::-webkit-scrollbar-corner {
+  background: rgba(0, 0, 0, 0.4);
+}
+
+/* Mobile portfolio scrollbar - Enhanced visibility */
+@media (max-width: 768px) {
+  .portfolio-scrollbar {
+    scrollbar-width: thick;
+  }
+
+  .portfolio-scrollbar::-webkit-scrollbar {
+    width: 14px;
+  }
+
+  .portfolio-scrollbar::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.9);
+    min-height: 40px;
+    border: 3px solid rgba(0, 0, 0, 0.2);
+  }
+}
+
+/* Force scroll behavior on touch devices */
+@media (hover: none) and (pointer: coarse) {
+  .portfolio-scrollbar {
+    -webkit-overflow-scrolling: touch;
+    overflow-y: scroll !important;
+  }
+}
+
 /* Hide scrollbars */
 .no-scrollbar {
   scrollbar-width: none;
@@ -10,6 +76,38 @@
 
 .no-scrollbar::-webkit-scrollbar {
   display: none;
+}
+
+/* Custom scrollbar for portfolio preview */
+.scrollbar-hide {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+.scrollbar-show {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.3) transparent;
+}
+
+.scrollbar-show::-webkit-scrollbar {
+  width: 4px;
+}
+
+.scrollbar-show::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.scrollbar-show::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 2px;
+}
+
+.scrollbar-show::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.5);
 }
 
 /* Custom animations */

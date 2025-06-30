@@ -7,6 +7,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: "/",
       disallow: ["/private/", "/admin/"],
     },
-    sitemap: "https://agency.example.com/sitemap.xml",
+    sitemap: "https://thewebsitewala.com/sitemap.xml",
   }
 }

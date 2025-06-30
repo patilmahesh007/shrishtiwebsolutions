@@ -92,7 +92,7 @@ export default function AboutPage() {
               foundingDate: "2021",
               numberOfEmployees: "10-50",
               description:
-                "",
+                "Passionate team of designers, developers, and digital strategists dedicated to transforming visions into powerful digital experiences.",
             },
           }),
         }}

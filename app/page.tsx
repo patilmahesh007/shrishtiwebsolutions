@@ -4,18 +4,18 @@ import HeroSection from "../hero-section"
 export const metadata: Metadata = {
   title: "Home",
   description:
-    "Professional web development, digital marketing, and SEO services. We create custom solutions that propel your online growth with measurable ROI.",
+    "Get a free quote today! The Website Wala delivers low‑cost, fast, reliable, professional Next.js web development, digital marketing, and SEO services in Pune, Mumbai, Maharashtra and throughout India.",
   openGraph: {
-    title: "Agency - Digital Solutions That Drive Results",
+    title: "The Website Wala | Professional Web Development & Digital Marketing",
     description:
-      "Professional web development, digital marketing, and SEO services. We create custom solutions that propel your online growth with measurable ROI.",
-    url: "https://agency.example.com",
+      "Low‑cost, fast, reliable Next.js development, digital marketing, and SEO in Pune, Mumbai, Maharashtra & India. Get a free quote!",
+    url: "https://thewebsitewala.com",
     images: [
       {
-        url: "/og-home.jpg",
+        url: "https://shrishtiwebsolutions.com/path/to/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: "Agency Homepage - Digital Solutions",
+        alt: "The Website Wala - Professional Web Development & Digital Marketing",
       },
     ],
   },
@@ -30,12 +30,15 @@ export default function Home() {
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "WebPage",
-            name: "Agency - Digital Solutions That Drive Results",
-            description: "Professional web development, digital marketing, and SEO services.",
-            url: "https://agency.example.com",
+            name: "The Website Wala | Professional Web Development & Digital Marketing",
+            description:
+              "Low‑cost, fast, reliable Next.js development, digital marketing, and SEO in Pune, Mumbai, Maharashtra & India.",
+            url: "https://thewebsitewala.com",
             mainEntity: {
               "@type": "Organization",
-              name: "Agency",
+              name: "The Website Wala",
+              url: "https://thewebsitewala.com",
+              sameAs: ["https://www.instagram.com/the_website_wala_/", "https://wa.me/918468954007"],
               offers: [
                 {
                   "@type": "Offer",

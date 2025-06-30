@@ -3,7 +3,7 @@
 import type React from "react"
 import PageLayout from "../../components/page-layout"
 import { useState } from "react"
-import { Mail, Phone, MapPin, Send, Check } from "lucide-react"
+import { Mail, Phone, MapPin, Check, MessageCircle } from "lucide-react"
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
@@ -21,8 +21,31 @@ export default function ContactPage() {
     e.preventDefault()
     setIsSubmitting(true)
 
-    // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 2000))
+    // Create WhatsApp message
+    const whatsappMessage = `
+*New Project Inquiry from Website*
+
+*Name:* ${formData.name}
+*Email:* ${formData.email}
+*Company:* ${formData.company || "Not specified"}
+*Service:* ${formData.service || "Not specified"}
+*Budget:* ${formData.budget || "Not specified"}
+
+*Message:*
+${formData.message}
+
+---
+Sent from The Website Wala contact form
+    `.trim()
+
+    const whatsappNumber = "918468954007"
+    const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`
+
+    // Simulate form processing
+    await new Promise((resolve) => setTimeout(resolve, 1000))
+
+    // Open WhatsApp
+    window.open(whatsappURL, "_blank")
 
     setIsSubmitting(false)
     setIsSubmitted(true)
@@ -62,6 +85,12 @@ export default function ContactPage() {
       link: "tel:+918468954007",
     },
     {
+      icon: <MessageCircle className="w-5 h-5 md:w-6 md:h-6" />,
+      title: "WhatsApp",
+      details: "+91 8468954007",
+      link: "https://wa.me/918468954007",
+    },
+    {
       icon: <MapPin className="w-5 h-5 md:w-6 md:h-6" />,
       title: "Location",
       details: "India",
@@ -83,7 +112,7 @@ export default function ContactPage() {
           </h1>
           <p className="text-gray-300 text-sm sm:text-base md:text-lg lg:text-xl max-w-3xl mx-auto leading-relaxed px-4">
             Ready to start your project? Get in touch with us and let's discuss how we can help bring your vision to
-            life.
+            life. We'll send your details directly to WhatsApp for instant communication.
           </p>
         </div>
 
@@ -95,8 +124,10 @@ export default function ContactPage() {
             {isSubmitted ? (
               <div className="bg-green-900/20 border border-green-800 rounded-xl md:rounded-2xl p-6 md:p-8 text-center">
                 <Check className="w-12 h-12 md:w-16 md:h-16 text-green-400 mx-auto mb-4" />
-                <h3 className="text-lg md:text-xl font-semibold text-white mb-2">Message Sent!</h3>
-                <p className="text-gray-300 text-sm md:text-base">We'll get back to you within 24 hours.</p>
+                <h3 className="text-lg md:text-xl font-semibold text-white mb-2">Message Sent to WhatsApp!</h3>
+                <p className="text-gray-300 text-sm md:text-base">
+                  Your inquiry has been forwarded to our WhatsApp. We'll respond shortly!
+                </p>
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-4 md:space-y-6">
@@ -160,16 +191,16 @@ export default function ContactPage() {
                       className="w-full bg-gray-900/50 border border-gray-800 rounded-lg md:rounded-xl px-3 py-3 md:px-4 md:py-4 text-white focus:border-white focus:outline-none transition-colors text-sm md:text-base"
                     >
                       <option value="">Select a service</option>
-                      <option value="web-development">Web Development</option>
-                      <option value="digital-marketing">Digital Marketing</option>
-                      <option value="seo">SEO Optimization</option>
+                      <option value="web-development">Web Development (₹15,000+)</option>
+                      <option value="digital-marketing">Digital Marketing (₹10,000/month)</option>
+                      <option value="seo">SEO Optimization (₹3,000/month)</option>
                     </select>
                   </div>
                 </div>
 
                 <div>
                   <label htmlFor="budget" className="block text-gray-300 mb-2 text-sm md:text-base">
-                    Project Budget
+                    Project Budget (INR)
                   </label>
                   <select
                     id="budget"
@@ -179,11 +210,41 @@ export default function ContactPage() {
                     className="w-full bg-gray-900/50 border border-gray-800 rounded-lg md:rounded-xl px-3 py-3 md:px-4 md:py-4 text-white focus:border-white focus:outline-none transition-colors text-sm md:text-base"
                   >
                     <option value="">Select budget range</option>
-                    <option value="under-5k">Under $5,000</option>
-                    <option value="5k-10k">$5,000 - $10,000</option>
-                    <option value="10k-25k">$10,000 - $25,000</option>
-                    <option value="25k-50k">$25,000 - $50,000</option>
-                    <option value="over-50k">Over $50,000</option>
+
+                    {/* Web Development Plans */}
+                    <optgroup label="🌐 Web Development (One-time)">
+                      <option value="web-basic-15k">Basic Plan - ₹15,000 (4 Pages)</option>
+                      <option value="web-standard-20k">Standard Plan - ₹20,000 (7 Pages)</option>
+                      <option value="web-premium-30k">Premium Plan - ₹30,000 (Unlimited Pages)</option>
+                      <option value="web-custom-30k+">Custom Development - ₹30,000+ (Advanced Features)</option>
+                    </optgroup>
+
+                    {/* Digital Marketing Plans */}
+                    <optgroup label="📱 Digital Marketing (Monthly)">
+                      <option value="marketing-basic-8k">Basic Plan - ₹8,000/month (2 Platforms)</option>
+                      <option value="marketing-standard-10k">Standard Plan - ₹10,000/month (4 Platforms)</option>
+                      <option value="marketing-premium-15k">Premium Plan - ₹15,000/month (All Platforms)</option>
+                    </optgroup>
+
+                    {/* SEO Plans */}
+                    <optgroup label="🔍 SEO Optimization (Monthly)">
+                      <option value="seo-basic-2.5k">Basic SEO - ₹2,500/month</option>
+                      <option value="seo-standard-3k">Standard SEO - ₹3,000/month</option>
+                      <option value="seo-premium-5k">Premium SEO - ₹5,000/month</option>
+                    </optgroup>
+
+                    {/* Combined Packages */}
+                    <optgroup label="📦 Combined Packages">
+                      <option value="combo-web-marketing">Website + Marketing - ₹25,000 + ₹8,000/month</option>
+                      <option value="combo-web-seo">Website + SEO - ₹18,000 + ₹2,500/month</option>
+                      <option value="combo-all-services">Complete Package - ₹35,000 + ₹10,000/month</option>
+                    </optgroup>
+
+                    {/* Custom Budget */}
+                    <optgroup label="💰 Custom Budget">
+                      <option value="budget-50k+">₹50,000+ (Enterprise Solutions)</option>
+                      <option value="budget-custom">Custom Quote Required</option>
+                    </optgroup>
                   </select>
                 </div>
 
@@ -206,17 +267,17 @@ export default function ContactPage() {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full bg-white text-black py-3 md:py-4 rounded-lg md:rounded-xl font-semibold hover:bg-gray-100 transition-colors flex items-center justify-center space-x-2 disabled:opacity-50 disabled:cursor-not-allowed text-sm md:text-base"
+                  className="w-full bg-[#25D366] text-white py-3 md:py-4 rounded-lg md:rounded-xl font-semibold hover:bg-[#20b358] transition-colors flex items-center justify-center space-x-2 disabled:opacity-50 disabled:cursor-not-allowed text-sm md:text-base"
                 >
                   {isSubmitting ? (
                     <>
-                      <div className="w-4 h-4 md:w-5 md:h-5 border-2 border-black/20 border-t-black rounded-full animate-spin" />
-                      <span>Sending...</span>
+                      <div className="w-4 h-4 md:w-5 md:h-5 border-2 border-white/20 border-t-white rounded-full animate-spin" />
+                      <span>Sending to WhatsApp...</span>
                     </>
                   ) : (
                     <>
-                      <span>Send Message</span>
-                      <Send className="w-4 h-4 md:w-5 md:h-5" />
+                      <MessageCircle className="w-4 h-4 md:w-5 md:h-5" />
+                      <span>Send to WhatsApp</span>
                     </>
                   )}
                 </button>
@@ -230,7 +291,8 @@ export default function ContactPage() {
               <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-white mb-6 md:mb-8">Get in touch</h2>
               <p className="text-gray-300 leading-relaxed mb-6 md:mb-8 text-sm sm:text-base">
                 We're here to help bring your ideas to life. Whether you have a specific project in mind or just want to
-                explore possibilities, we'd love to hear from you.
+                explore possibilities, we'd love to hear from you. All our services are priced in Indian Rupees for your
+                convenience.
               </p>
             </div>
 
@@ -257,7 +319,8 @@ export default function ContactPage() {
             <div className="bg-gray-900/50 backdrop-blur-sm rounded-xl md:rounded-2xl border border-gray-800 p-4 md:p-6">
               <h3 className="text-white font-semibold mb-2 text-sm md:text-base">Quick Response</h3>
               <p className="text-gray-300 text-xs sm:text-sm">
-                We typically respond to all inquiries within 24 hours. For urgent matters, please call us directly.
+                We typically respond to all WhatsApp inquiries within 2 hours during business hours. For urgent matters,
+                please call us directly.
               </p>
             </div>
 
@@ -265,7 +328,7 @@ export default function ContactPage() {
             <div className="bg-gray-900/50 backdrop-blur-sm rounded-xl md:rounded-2xl border border-gray-800 p-4 md:p-6">
               <h3 className="text-white font-semibold mb-2 text-sm md:text-base">Available for Projects</h3>
               <p className="text-gray-300 text-xs sm:text-sm">
-                Currently accepting new projects. Let's discuss your requirements and timeline.
+                Currently accepting new projects. Let's discuss your requirements and timeline. All prices in INR.
               </p>
             </div>
           </div>

@@ -1,5 +1,6 @@
 import type React from "react"
 import Navigation from "./navigation"
+import FloatingSocialButtons from "./floating-social-buttons"
 
 interface PageLayoutProps {
   children: React.ReactNode
@@ -19,6 +20,9 @@ export default function PageLayout({ children, className = "" }: PageLayoutProps
         <Navigation />
         {children}
       </div>
+
+      {/* Floating Social Buttons */}
+      <FloatingSocialButtons />
     </div>
   )
 }
