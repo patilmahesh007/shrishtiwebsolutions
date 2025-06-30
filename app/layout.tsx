@@ -134,7 +134,7 @@ export default function RootLayout({
                 "@type": "ContactPoint",
                 telephone: "+91-8468954007",
                 contactType: "customer service",
-                email: "shrishtiuwebsolutions@gmail.com",
+                email: "shrishtiwebsolutions@gmail.com",
                 availableLanguage: ["English", "Hindi"],
               },
               sameAs: ["https://www.instagram.com/the_website_wala_/", "https://wa.me/918468954007"],

@@ -75,8 +75,8 @@ Sent from The Website Wala contact form
     {
       icon: <Mail className="w-5 h-5 md:w-6 md:h-6" />,
       title: "Email",
-      details: "shrishtiuwebsolutions@gmail.com",
-      link: "mailto:shrishtiuwebsolutions@gmail.com",
+      details: "shrishtiwebsolutions@gmail.com",
+      link: "mailto:shrishtiwebsolutions@gmail.com",
     },
     {
       icon: <Phone className="w-5 h-5 md:w-6 md:h-6" />,
