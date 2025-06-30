@@ -8,7 +8,7 @@ export default function FloatingSocialButtons() {
   const whatsappMessage = "Hi! I'm interested in your web development services. Can we discuss my project?"
 
   return (
-    <div className="fixed bottom-6 right-6 z-50 flex flex-col space-y-3">
+    <div className="fixed bottom-24 md:bottom-6 right-6 z-50 flex flex-col space-y-3">
       {/* Instagram Button */}
       <Link
         href="https://www.instagram.com/the_website_wala_/"
