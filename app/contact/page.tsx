@@ -75,8 +75,8 @@ Sent from The Website Wala contact form
     {
       icon: <Mail className="w-5 h-5 md:w-6 md:h-6" />,
       title: "Email",
-      details: "shrishtiwebsolutions@gmail.com",
-      link: "mailto:shrishtiwebsolutions@gmail.com",
+      details: "shrishtiuwebsolutions@gmail.com",
+      link: "mailto:shrishtiuwebsolutions@gmail.com",
     },
     {
       icon: <Phone className="w-5 h-5 md:w-6 md:h-6" />,
@@ -130,7 +130,7 @@ Sent from The Website Wala contact form
                 </p>
               </div>
             ) : (
-              <form onSubmit={handleSubmit} className="space-y-4 md:space-y-6">
+              <form onSubmit={handleSubmit} className="space-y-4 md:space-y-6 pb-24 md:pb-0">
                 <div className="grid md:grid-cols-2 gap-4 md:gap-6">
                   <div>
                     <label htmlFor="name" className="block text-gray-300 mb-2 text-sm md:text-base">
@@ -267,7 +267,7 @@ Sent from The Website Wala contact form
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full bg-[#25D366] text-white py-3 md:py-4 rounded-lg md:rounded-xl font-semibold hover:bg-[#20b358] transition-colors flex items-center justify-center space-x-2 disabled:opacity-50 disabled:cursor-not-allowed text-sm md:text-base"
+                  className="w-full bg-[#25D366] text-white py-4 md:py-4 rounded-lg md:rounded-xl font-semibold hover:bg-[#20b358] transition-colors flex items-center justify-center space-x-2 disabled:opacity-50 disabled:cursor-not-allowed text-base md:text-base mb-6 md:mb-0"
                 >
                   {isSubmitting ? (
                     <>
